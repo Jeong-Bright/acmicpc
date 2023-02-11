@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int tf(int a){
+bool tf(int a){
 	if(a % 4 == 0 && (a % 100 != 0 || a % 400 == 0))
 	return true;
 	else
