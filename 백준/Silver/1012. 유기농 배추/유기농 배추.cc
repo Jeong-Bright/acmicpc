@@ -14,7 +14,7 @@ int n, m, k;
 queue <pair<int, int>> Q;
 
 void bfs(int x, int y) {
-    vis[x][y] = true;
+    vis[x][y] = 1;
     Q.push({ x,y });
     while (!Q.empty()) {
         auto cur = Q.front(); Q.pop();
@@ -23,7 +23,7 @@ void bfs(int x, int y) {
             int ny = cur.Y + dy[dir];
             if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
             if (vis[nx][ny] || board[nx][ny] != 1) continue;
-            vis[nx][ny] = true;
+            vis[nx][ny] = 1;
             Q.push({ nx, ny });
         }
     }
@@ -42,19 +42,19 @@ int main(void) {
         int area = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (board[i][j] == 1 && !vis[i][j]) {
+                if (board[i][j] ==1 && !vis[i][j]) {
                     bfs(i, j);
                     area++;
-
                 }
+                
             }
         }
 
         cout << area << endl;
         for (int i = 0; i < n; i++) {
             fill(board[i], board[i] + m, 0);
-            fill(vis[i], vis[i] + m, false);
+            fill(vis[i], vis[i] + m, 0);
         }
     }
-    return 0;
+
 }
