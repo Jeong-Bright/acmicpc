@@ -1,2 +1,2 @@
 #include <bits/stdc++.h>
-using namespace std;int T,X;int main(){cin>>T;while(T--){stack<char>s;string S;cin>>S;for(auto c:S){if(!s.empty()&&c==s.top())s.pop();else s.push(c);}if(s.empty())X++;}cout<<X;}
+using namespace std;int T,X;int main(){cin>>T;while(T--){stack<char>s;string S;cin>>S;for(auto c:S){if(s.size()&&c==s.top())s.pop();else s.push(c);}if(s.empty())X++;}cout<<X;}
