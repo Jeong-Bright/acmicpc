@@ -1,37 +1,43 @@
 #include <bits/stdc++.h>
-#define call ios_base::sync_with_stdio(0); cin.tie(0);
-#define MX 2000005
-#define MAX 0x7ffffff
-#define ll long long
-#define endl '\n';
 using namespace std;
-stack<int> st;
+typedef long long ll;
+#define endl '\n';
+#define call ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+vector<int> v;
+vector<char> adj;
+int p[100005];
+
+
+
 int main() {
-	call;
-	int n = 1;
-	int N;
-	int K;
-	cin >> N;
-	vector<char> M;
+    call;
+    stack<int> intstk;
+    stack<char> stk;
+    int v; cin >> v;
+    int num = 1;
 
-	for (int i = 0; i < N; i++) {
 
-		cin >> K;
-		while (n <= K) {
-			st.push(n);
-			n++;
-			M.push_back('+');
-		}
-				if (st.top() == K) {
-					st.pop();
-					M.push_back('-');
-				}
-				else {
-					cout << "NO";
-					return 0;
-				}
 
-		
-	}
-	for (auto c : M) cout << c << endl
+    for (int i = 1; i <= v; i++) {
+
+        int k; cin >> k;
+        while (k >= num) {
+            intstk.push(num);
+            adj.push_back('+');
+            num++;
+        }
+        if (intstk.top() >= k) {
+            intstk.pop();
+            adj.push_back('-');
+        }
+    }
+
+    if (intstk.empty()) {
+        for (int i = 0; i < adj.size(); i++) {
+            cout << adj[i] << endl;
+        }
+    }
+    else cout << "NO" << endl;
+    
+
 }
